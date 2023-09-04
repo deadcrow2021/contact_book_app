@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contacts List</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+
+    <div class="panel">
+        <div class="panel_button" id="refresh_button">Refresh</div>
+        <div class="panel_button" id="register_button"><a href="{% url 'register' %}">Register</a></div>
+    </div>
+
+    
+    <div class="container">
+
+        <div id="search">
+            <span>Search</span>
+            <form id="form">
+                <div class="flex-wrapper">
+                    <div style="flex: 3">
+                        <input id="search_id" class="form-control" type="number" step="1" min="1" name="first_name" placeholder="ID">
+                    </div>
+                    <div style="flex: 3">
+                        <input id="search_first_name" class="form-control" type="text" name="first_name" placeholder="First Name">
+                    </div>
+                    <div style="flex: 3">
+                        <input id="search_last_name" class="form-control" type="text" name="last_name" placeholder="Last Name">
+                    </div>
+                    <div style="flex: 3">
+                        <input id="search_phone" class="form-control" type="text" name="phone" placeholder="Phone Number">
+                    </div>
+                    <div style="flex: 3">
+                        <input id="search_email" class="form-control" type="text" name="email" placeholder="Email">
+                    </div>
+                    <div style="flex: 1">
+                        <input id="submit" class="btn" type="submit" >
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div id="task-container">
+            <div id="form-wrapper">
+                <form id="form">
+                    <div class="flex-wrapper">
+                        <div style="flex: 3">
+                            <input id="first_name" class="form-control" type="text" name="first_name" placeholder="First Name">
+                        </div>
+                        <div style="flex: 3">
+                            <input id="last_name" class="form-control" type="text" name="last_name" placeholder="Last Name">
+                        </div>
+                        <div style="flex: 3">
+                            <input id="phone" class="form-control" type="text" name="phone" placeholder="Phone Number">
+                        </div>
+                        <div style="flex: 3">
+                            <input id="email" class="form-control" type="text" name="email" placeholder="Email">
+                        </div>
+                        <div style="flex: 1">
+                            <input id="submit" class="btn" type="submit" >
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div id="pagination">
+            </div>
+
+            <div id="list-wrapper">
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
