@@ -13,7 +13,12 @@
 
     <div class="panel">
         <div class="panel_button" id="refresh_button">Refresh</div>
-        <div class="panel_button" id="register_button"><a href="{% url 'register' %}">Register</a></div>
+        {% if user.is_authenticated %}
+            <div class="panel_button"><a href="{% url 'register' %}">Logout</a></div>
+        {% else %}
+            <div class="panel_button" id="register_button"><a href="{% url 'register' %}">Register</a></div>
+            <div class="panel_button"><a href="{% url 'register' %}">Login</a></div>
+        {% endif %}
     </div>
 
     

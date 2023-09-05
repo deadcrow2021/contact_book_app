@@ -50,7 +50,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         .then(function(data){
             let paginator_block = document.getElementById('pagination')
             let list = []
-            let error = ''
+            let error = 'Log In to use API'
 
             if (search_data) {
                 wrapper.innerHTML = ''

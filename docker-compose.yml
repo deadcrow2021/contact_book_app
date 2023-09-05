@@ -1,21 +1,26 @@
-version: '3.8'
+version: '3.7'
+
+
 services:
-  backend:
+  db:
+    image: postgres:13.3
+    volumes: 
+      - postgres_data:/var/lib/postgresql/data/
+    env_file: .env
+  web:
     build:
       context: .
-      dockerfile: Dockerfile
-    command: 'python manage.py runserver 0.0.0.0:8000'
+    command: >
+      sh -c "pip install -r requirements.txt && 
+            python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
     ports:
-      - 8000:8000
-    volumes:
-      - .:/app
-    depends_on:
+      - "8000:8000"
+    env_file: .env
+    volumes: 
+      - .:/usr/src/app
+    depends_on: 
       - db
 
-  db:
-    image: postgres:latest
-    restart: always
-    volumes:
-      - .dbdata:/var/lib/postgres
-    ports:
-      - 5432:5432
+volumes:
+  postgres_data:
